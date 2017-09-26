@@ -6,13 +6,14 @@ package pakke;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
-
+/**
+ * Class that contains the GET and POST methods for the
+ */
 @Path("/orders")
 public class RestaurantService {
     private static Map<String, Table> tables = new HashMap<>();
@@ -20,9 +21,16 @@ public class RestaurantService {
 
     private static final AtomicInteger count = new AtomicInteger(0);
 
+
+    /**
+     * POST method that submits an order. It also gives the order an Id.
+     *
+     * @param order
+     * @return
+     */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public int lagOrdre(Order order){
+    public int makeOrder(Order order){
         int id = count.incrementAndGet();
         order.setOrderId(id);
         orders.put(order.getOrderId(), order);
@@ -30,20 +38,13 @@ public class RestaurantService {
         return order.getOrderId();
     }
 
+    /**
+     * GET method for getting all the orders that has been made.
+     * @return
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Collection<Order> getOrders(){
         return orders.values();
     }
-
-    @GET
-    @Path("/{orderId}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Order getTotalTables(@PathParam("orderId") int orderId){
-        return orders.get(orderId);
-    }
-
-
-
-
 }

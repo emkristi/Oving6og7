@@ -3,15 +3,18 @@ package pakke;
 import java.util.Date;
 
 /**
+ * Java class for an Order.
+ *
  * Created by Eline on 14.09.2017.
  */
 public class Order {
 
     private int orderId;
-    //private int totalTables;
     private String numGuests;
-    //private Table[] table; // tabell over bordene
-    private String meal;
+    //private String meal;
+    private String ap;
+    private String mc;
+    private String des;
     private String drink;
     private String time;
 
@@ -21,7 +24,6 @@ public class Order {
 
     /*
     public Order(String orderId, int numGuests, String meal, String drink, Date time){
-        //this.totalTables = totalTables;
         this.numGuests = numGuests;
         this.meal = meal;
         this.drink = drink;
@@ -29,39 +31,64 @@ public class Order {
     }
     */
 
+    /**
+     * Method for getting an orderId
+     * @return
+     */
     public int getOrderId(){
         return orderId;
     }
 
+    /**
+     * Method for setting an orderId
+     * @param orderId
+     */
     public void setOrderId(int orderId){
         this.orderId = orderId;
     }
 
-    /*public int getTotalTables() {
-        return totalTables;
-    }
-
-    public void setTotalTables(int totalTables) {
-        this.totalTables = totalTables;
-    }*/
-
+    /**
+     * Method for getting number of guests
+     * @return
+     */
     public String getNumGuests() {
         return numGuests;
     }
 
+    /**
+     * Method for setting number og guests
+     * @param numGuests
+     */
     public void setNumGuests(String numGuests) {
         this.numGuests = numGuests;
     }
 
-    /*public Table[] getTable() {
-        return table;
+    public String getAp(){
+        return ap;
     }
-    */
-/*
-    public void setTable(Table[] table) {
-        this.table = table;
+
+    public void setAp(String ap){
+        this.ap = ap;
     }
-*/
+
+    public String getMc(){
+        return mc;
+    }
+
+    public void setMc(String mc){
+        this.mc = mc;
+    }
+
+    public String getDes(){
+        return des;
+    }
+
+    public void setDes(String des){
+        this.des = des;
+    }
+
+
+    /*
     public String getMeal(){
         return meal;
     }
@@ -69,6 +96,7 @@ public class Order {
     public void setMeal(String meal){
         this.meal = meal;
     }
+    */
 
     public String getDrink(){
         return drink;
@@ -78,10 +106,18 @@ public class Order {
         this.drink = drink;
     }
 
+    /**
+     * Method for getting time
+     * @return
+     */
     public String getTime() {
         return time;
     }
 
+    /**
+     * Method for setting time
+     * @param time
+     */
     public void setTime(String time) {
         this.time = time;
     }

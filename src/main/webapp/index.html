@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Restaurant</title>
+    <title>Tzoni</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -10,6 +10,8 @@
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
 
+
+
     <style>
         .bg-1{
             background-color: #ffffff;
@@ -17,15 +19,31 @@
 
         h1{
             color: lightslategray;
-            font-family:  "Calibri Light";
+            font-family:  "Calibri";
             font-size: 250%;
         }
 
         h2{
-            color: lightseagreen;
-            font-family: "Calibri Light";
-            font-size: 150%;
+            color: black;
+            font-family: "Calibri";
+            font-size: 130%;
         }
+
+        .col-centered{
+            float: none;
+            margin: 0 auto;
+        }
+
+        .label, label.inline {
+            display: inline-block;
+            width: 100px;
+        }
+
+        .align-center{
+            display: block;
+            float: none;
+        }
+
     </style>
 
     <script>
@@ -34,7 +52,9 @@
             function getOrderJSON() {
                 data = JSON.stringify({
                     numGuests: $("#numGuests").val(),
-                    meal: $("#mealId:checked").val(),
+                    ap: $("#appetizer").val(),
+                    mc: $("#maincourse").val(),
+                    des: $("#dessert").val(),
                     drink: $("#drink").val(),
                     time: $("#time").val()
                 });
@@ -68,125 +88,112 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Restaurant</a>
+            <a class="navbar-brand" href="#"><i class="glyphicon glyphicon-home"></i></a>
         </div>
         <ul class="nav navbar-nav">
             <li><a href="index.html">Home</a></li>
             <li><a href="menu.html">Menu</a></li>
-            <li><a href="#">Help</a></li>
+            <li><a href="help.html">Help</a></li>
         </ul>
     </div>
 </nav>
 
+    <div align="center">
+        <img src="https://image.ibb.co/e9ywDk/Forkymeals.jpg"
+             border="0px" width="323px" height="213px"/>
+        <br><br>
+    </div>
 
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-8">
-            <label class="container">
+                <div class="col-lg-5 col-centered">
 
-                <h1>Welcome!</h1>
-                <h2>Fill in the information to make your order</h2><br>
-                <br>
 
-                <div class="form-group">
-                    <label for="numGuests">Number of guests: </label>
-                    <input id="numGuests" type="text">
-                </div>
 
-                <from>
-                    <div class="form-group" id="radio1">
-                        <label>Choose appetizer: </label>
-                        <div class="radio-inline">
-                            <label><input type="radio" name="Appetizer">Appetizer</label>
-                        </div>
-                        <div class="radio-inline">
-                            <label><input type="radio" name="Appetizer">Appetizer</label>
-                        </div>
-                        <div class="radio-inline">
-                            <label><input type="radio" name="Appetizer">Appetizer</label>
-                        </div>
+                    <div class="form-group">
+                        <label for="numGuests">Number of guests: </label>
+                        <input id="numGuests" type="text">
                     </div>
-                </from>
 
-                <from>
-                    <div class="form-group" id="radio2">
-                        <label>Choose Main Course: </label>
-                        <div class="radio-inline">
-                            <label><input type="radio" name="Main Course">Main Course</label>
+                    <form>
+                        <div class="form-group">
+                            <label for="appetizer">Choose Appetizer:</label>
+                            <select class="form-control" id="appetizer">
+                                <option>None</option>
+                                <option>Spinach Soup</option>
+                                <option>Cauliflower Soup</option>
+                                <option>Focaccia bread</option>
+                            </select>
                         </div>
-                        <div class="radio-inline">
-                            <label><input type="radio" name="Main Course">Main Course</label>
+                    </form>
+
+
+                    <form>
+                        <div class="form-group">
+                            <label for="maincourse">Choose Main Course:</label>
+                            <select class="form-control" id="maincourse">
+                                <option>None</option>
+                                <option>Chickpea Curry</option>
+                                <option>Three Bean Chili</option>
+                                <option>Peanut noodles</option>
+
+                            </select>
                         </div>
-                        <div class="radio-inline">
-                            <label><input type="radio" name="Main Course">Main Course</label>
+                    </form>
+
+                    <form>
+                        <div class="form-group">
+                            <label for="dessert">Choose Dessert:</label>
+                            <select class="form-control" id="dessert">
+                                <option>None</option>
+                                <option>Apple Pie</option>
+                                <option>Mango Sorbet</option>
+                                <option>Blueberry Muffin</option>
+                            </select>
                         </div>
+                    </form>
+
+
+                    <form>
+                        <div class="form-group">
+                            <label for="drink">Choose Drink</label>
+                            <select class="form-control" id="drink">
+                                <option>None</option>
+                                <option>Coca Cola</option>
+                                <option>Sprite</option>
+                                <option>Ice Tea</option>
+                            </select>
+                        </div>
+                    </form>
+
+                    <div class="form-group">
+                        <label for="time">Time: </label>
+                        <input id="time" type="time">
                     </div>
-                </from>
 
-                <from>
-                    <div class="form-group" id="radio3">
-                        <label>Choose dessert: </label>
-                        <div class="radio-inline">
-                            <label><input type="radio" name="Dessert">Meal 1</label>
-                        </div>
-                        <div class="radio-inline">
-                            <label><input type="radio" name="Dessert">Meal 2</label>
-                        </div>
-                        <div class="radio-inline">
-                            <label><input type="radio" name="Dessert">Meal 3</label>
-                        </div>
+                    <div class="form-group">
+                        <label for="cardNumber">Card number:</label>
+                        <input id="cardNumber" type="text">
                     </div>
-                </from>
 
-
-                <from>
-                    <div class="form-group" id="radio4">
-                        <label>Choose drink(s): </label>
-                        <div class="radio-inline">
-                            <label><input type="radio" name="drink">Water</label>
-                        </div>
-                        <div class="radio-inline">
-                            <label><input type="radio" name="drink">Soda</label>
-                        </div>
+                    <div class="form-group">
+                        <label for="expirationDate">Expiration date:</label>
+                        <input id="expirationDate" type="text">
                     </div>
-                </from>
 
-                <div class="form-group">
-                    <label for="time">Time: </label>
-                    <input id="time" type="time">
-                </div>
-
-                <div class="form-group">
-                    <label for="cardNumber">Card number: </label>
-                    <input id="cardNumber" type="text">
-                </div>
-
-                <div class="form-group">
-                    <label for="expirationDate">Expiration date: </label>
-                    <input id="expirationDate" type="text">
-                </div>
-
-                <div class="form-group">
-                    <label for="securetyCode">Security code: </label>
-                    <input id="securetyCode" type="text">
-                </div>
+                    <div class="form-group">
+                        <label for="securetyCode">Security code:</label>
+                        <input id="securetyCode" type="text">
+                    </div>
 
 
-                <button id="order">Order</button><br><br>
-                <br>
+                    <button id="order">Order</button><br><br>
+                    <br>
+             </div>
 
-
-            </label>
-            </div>
-            <div class="col-sm-4">
-
-            </div>
-
-
-        </div>
-
+    </div>
 </div>
-
+</div>
 </body>
 </html>
