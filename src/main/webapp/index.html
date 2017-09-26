@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Restaurant</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+
+    <style>
+        .bg-1{
+            background-color: #ffffff;
+        }
+
+        h1{
+            color: lightslategray;
+            font-family:  "Calibri Light";
+            font-size: 250%;
+        }
+
+        h2{
+            color: lightseagreen;
+            font-family: "Calibri Light";
+            font-size: 150%;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+
+            function getOrderJSON() {
+                data = JSON.stringify({
+                    numGuests: $("#numGuests").val(),
+                    meal: $("#mealId:checked").val(),
+                    drink: $("#drink").val(),
+                    time: $("#time").val()
+                });
+                console.log(data);
+                return data;
+            }
+
+        $("#order").click(function () {
+            $.ajax({
+                url: 'rest/orders',
+                type: 'POST',
+                data: getOrderJSON(),
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                complete: function(result){
+                    alert("okidokko");
+                    $('#myTable').DataTable().ajax.reload();
+                    console.log(result)
+                }
+            });
+
+        })
+        });
+
+
+    </script>
+</head>
+<body>
+<div class="container-fluid bg-1">
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Restaurant</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="#">Help</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+            <label class="container">
+
+                <h1>Welcome!</h1>
+                <h2>Fill in the information to make your order</h2><br>
+                <br>
+
+                <div class="form-group">
+                    <label for="numGuests">Number of guests: </label>
+                    <input id="numGuests" type="text">
+                </div>
+
+                <from>
+                    <div class="form-group" id="radio1">
+                        <label>Choose appetizer: </label>
+                        <div class="radio-inline">
+                            <label><input type="radio" name="Appetizer">Appetizer</label>
+                        </div>
+                        <div class="radio-inline">
+                            <label><input type="radio" name="Appetizer">Appetizer</label>
+                        </div>
+                        <div class="radio-inline">
+                            <label><input type="radio" name="Appetizer">Appetizer</label>
+                        </div>
+                    </div>
+                </from>
+
+                <from>
+                    <div class="form-group" id="radio2">
+                        <label>Choose Main Course: </label>
+                        <div class="radio-inline">
+                            <label><input type="radio" name="Main Course">Main Course</label>
+                        </div>
+                        <div class="radio-inline">
+                            <label><input type="radio" name="Main Course">Main Course</label>
+                        </div>
+                        <div class="radio-inline">
+                            <label><input type="radio" name="Main Course">Main Course</label>
+                        </div>
+                    </div>
+                </from>
+
+                <from>
+                    <div class="form-group" id="radio3">
+                        <label>Choose dessert: </label>
+                        <div class="radio-inline">
+                            <label><input type="radio" name="Dessert">Meal 1</label>
+                        </div>
+                        <div class="radio-inline">
+                            <label><input type="radio" name="Dessert">Meal 2</label>
+                        </div>
+                        <div class="radio-inline">
+                            <label><input type="radio" name="Dessert">Meal 3</label>
+                        </div>
+                    </div>
+                </from>
+
+
+                <from>
+                    <div class="form-group" id="radio4">
+                        <label>Choose drink(s): </label>
+                        <div class="radio-inline">
+                            <label><input type="radio" name="drink">Water</label>
+                        </div>
+                        <div class="radio-inline">
+                            <label><input type="radio" name="drink">Soda</label>
+                        </div>
+                    </div>
+                </from>
+
+                <div class="form-group">
+                    <label for="time">Time: </label>
+                    <input id="time" type="time">
+                </div>
+
+                <div class="form-group">
+                    <label for="cardNumber">Card number: </label>
+                    <input id="cardNumber" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label for="expirationDate">Expiration date: </label>
+                    <input id="expirationDate" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label for="securetyCode">Security code: </label>
+                    <input id="securetyCode" type="text">
+                </div>
+
+
+                <button id="order">Order</button><br><br>
+                <br>
+
+
+            </label>
+            </div>
+            <div class="col-sm-4">
+
+            </div>
+
+
+        </div>
+
+</div>
+
+</body>
+</html>

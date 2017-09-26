@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Restaurant</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+
+    <style>
+        h1{
+            color: lightseagreen;
+            font-family:  "Calibri Light";
+            font-size: 250%;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+            getOrders();
+            setInterval(reloadOrders, 10000);
+            function reloadOrders() {
+                $('#myTable').DataTable().ajax.reload();
+            }
+
+            function getOrders() {
+                $('#myTable').DataTable({
+                    ajax: {
+                        url: 'rest/orders',
+                        dataSrc: ''
+                    },
+                    columns: [
+                        {data: 'numGuests'},
+                        {data: 'meal'},
+                        {data: 'drink'},
+                        {data: 'time'}]
+                })
+            }
+        });
+
+    </script>
+
+
+</head>
+<body>
+
+<div class="container">
+    <h1>Orders</h1>
+        <div class ="table-responsive">
+            <table id="myTable" class="table table-bordered">
+                <thead>
+                    <tr><th>Table Number</th><th>Meal</th><th>Drink</th><th>Time</th></tr>
+                </thead>
+            </table>
+        </div>
+
+
+
+</div>
+
+</body>
+</html>

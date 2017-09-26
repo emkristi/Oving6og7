@@ -734,7 +734,7 @@
       <workItem from="1505382045297" duration="12092000" />
       <workItem from="1505985672243" duration="3693000" />
       <workItem from="1506108808490" duration="24284000" />
-      <workItem from="1506205384373" duration="20439000" />
+      <workItem from="1506205384373" duration="20453000" />
     </task>
     <task id="LOCAL-00001" summary="Order function works, most of order information is saved and shows up in panel">
       <created>1506415457899</created>
@@ -743,11 +743,18 @@
       <option name="project" value="LOCAL" />
       <updated>1506415457899</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Order function works, most of order information is saved and shows up in panel">
+      <created>1506415795750</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1506415795750</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60508000" />
+    <option name="totallyTimeSpent" value="60522000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-16" y="-16" width="3232" height="1732" extended-state="6" />
