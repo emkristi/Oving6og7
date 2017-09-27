@@ -10,8 +10,6 @@
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
 
-
-
     <style>
         .bg-1{
             background-color: #ffffff;
@@ -38,17 +36,10 @@
             display: inline-block;
             width: 100px;
         }
-
-        .align-center{
-            display: block;
-            float: none;
-        }
-
     </style>
 
     <script>
         $(document).ready(function () {
-
             function getOrderJSON() {
                 data = JSON.stringify({
                     numGuests: $("#numGuests").val(),
@@ -75,13 +66,11 @@
                     console.log(result)
                 }
             });
-
         })
         });
-
-
     </script>
 </head>
+
 <body>
 <div class="container-fluid bg-1">
 
@@ -108,9 +97,6 @@
     <div class="container">
         <div class="row">
                 <div class="col-lg-5 col-centered">
-
-
-
                     <div class="form-group">
                         <label for="numGuests">Number of guests: </label>
                         <input id="numGuests" type="text">
@@ -127,7 +113,6 @@
                             </select>
                         </div>
                     </form>
-
 
                     <form>
                         <div class="form-group">
@@ -153,7 +138,6 @@
                             </select>
                         </div>
                     </form>
-
 
                     <form>
                         <div class="form-group">
@@ -186,7 +170,6 @@
                         <label for="securetyCode">Security code:</label>
                         <input id="securetyCode" type="text">
                     </div>
-
 
                     <button id="order">Order</button><br><br>
                     <br>

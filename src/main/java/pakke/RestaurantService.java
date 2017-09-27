@@ -18,9 +18,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class RestaurantService {
     private static Map<String, Table> tables = new HashMap<>();
     private static Map<Integer, Order> orders = new HashMap<>();
-
     private static final AtomicInteger count = new AtomicInteger(0);
-
+    private static final AtomicInteger countTable = new AtomicInteger(0);
 
     /**
      * POST method that submits an order. It also gives the order an Id.
@@ -31,9 +30,14 @@ public class RestaurantService {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public int makeOrder(Order order){
+
         int id = count.incrementAndGet();
         order.setOrderId(id);
         orders.put(order.getOrderId(), order);
+
+        int tableId = countTable.incrementAndGet();
+        order.setTableId(tableId);
+        orders.put(order.getTableId(), order);
 
         return order.getOrderId();
     }

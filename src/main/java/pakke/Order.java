@@ -10,8 +10,8 @@ import java.util.Date;
 public class Order {
 
     private int orderId;
+    private int tableId;
     private String numGuests;
-    //private String meal;
     private String ap;
     private String mc;
     private String des;
@@ -20,6 +20,14 @@ public class Order {
 
     public Order(){
 
+    }
+
+    public int getTableId(){
+        return tableId;
+    }
+
+    public void setTableId(int tableId){
+        this.tableId = tableId;
     }
 
     /*
@@ -63,45 +71,66 @@ public class Order {
         this.numGuests = numGuests;
     }
 
+    /**
+     * Method for getting appetizer
+     * @return
+     */
     public String getAp(){
         return ap;
     }
 
+    /**
+     * Method for setting appetizer
+     * @param ap
+     */
     public void setAp(String ap){
         this.ap = ap;
     }
 
+    /**
+     * Method for getting Main Course
+     * @return
+     */
     public String getMc(){
         return mc;
     }
 
+    /**
+     * Method for setting Main Course
+     * @param mc
+     */
     public void setMc(String mc){
         this.mc = mc;
     }
 
+    /**
+     * Method for getting Dessert
+     * @return
+     */
     public String getDes(){
         return des;
     }
 
+    /**
+     * Method for setting Dessert
+     * @param des
+     */
     public void setDes(String des){
         this.des = des;
     }
 
-
-    /*
-    public String getMeal(){
-        return meal;
-    }
-
-    public void setMeal(String meal){
-        this.meal = meal;
-    }
-    */
-
+    /**
+     * Method for getting drink
+     * @return
+     */
     public String getDrink(){
         return drink;
     }
 
+    /**
+     * Method for setting drink
+     * @param drink
+     */
     public void setDrink(String drink){
         this.drink = drink;
     }
